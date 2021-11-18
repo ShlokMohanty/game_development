@@ -1,0 +1,11 @@
+Viewing Transformations :
+1) Specification of projection Plane(or view plane).
+2) Build view Plane Coordinate system 
+3) Cinversion of world coordinates to view plane coordinates .
+4) Specification of View Volume .
+
+Specification of projection plane (or view plane)
+we specify the projection plane by :
+1) A reference Point R0(x0, y0, z0) in world coordinates 
+2) A unit normal vector N= n1j+n2j+n3k again in WCS axis .
+
