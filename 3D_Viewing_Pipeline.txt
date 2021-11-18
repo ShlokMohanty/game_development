@@ -1,0 +1,46 @@
+1) Convert the description of the (scene to viewing coordinates) , which includes the position and orientation 
+of the projection plane ---> view plane similar to camera film plane .
+
+2) Convert and project the viewing coordinates into projection coordinates of teh 2D clippig region 
+selected - called the view volume and defined as a volume of space enclosed in clipping planes.
+
+3) Transform viewing-coordinates(between 0 to 1) to normalized-coordinates(between -1 to 1),
+clipping off parts of the scene outside teh view volume.
+
+4) Map normalized-coordinates to device-coordinates .
+
+
+MC --> Modeling Transformation ---> Window Coordinate --> Viewing Transformation --> Viewing coordinate 
+--> Projection Transformation----> Projection coordinates --> Normalization Transformations and clipping 
+---> Normalized coordinate ---> viewport Transformation ---> Device Coordinates
+
+Modeling Transformation --> transformations applied to object(more precisely the data representing 
+the objects in the world coordinate system) prior to viewing are called modeling transformations 
+These include instance transformations such as :
+
+1) Translation 
+2) Scaling 
+3) Rotation 
+
+Viewing Transformations ---> These transformations are applied to teh desired object to specify 
+the observer viewing position and the position of the projection plane, which we think of in analogy 
+with the camera film plane. It consists of defining view volume.
+
+3) Projection Transformations ---> convert viewing coordinates description of the scene to 
+coordinate positions on the output device.
+
+---Parallel projection : parallel lines are transformed into parallel lines can be orthogonal or oblique .
+  1) Otrthogonal projection :projection lines are perpendincular to the view plane .
+  2) Oblique parallel projections: projection lines are all parallel and not perpendicular to teh view plane .
+    1) Cavalier Projection : angle=45 degrees 
+    2) Cabinet projection: 63.4 degrees/tan (angle)=2
+    
+  3) perspective projection does not conserve parallel lines nor objects proportions :
+    1) Frustum is the view volume between near and far clipping planes, and has the shape of a truncated pyramid.
+    
+  Normalization Transformation: The view volume is mapped to unit volume in the normalized projection coordinate system.
+  
+  Workstation Transformation : Finally normalized projection coordinates are converted to device coordinates 
+  for display .
+  
+  
