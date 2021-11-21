@@ -1,0 +1,13 @@
+DDA algorithm :
+digital differential analyzer is a scan conversion line algorithm based on calculating 
+either delta x or delta y .
+consider first a line with the positive slope , if m<1 or equal to 1, we sample at unit x intervals (delta x =1)
+and compute successive y values as :
+
+y(k+1) = yk + m 
+k takes values from 0 for the first point and increases by 1 until the final end points is reached.
+each caculated y value must be rounded to the nearest integer corresponding to a screen pixel position in the x column 
+for a positive slope greater than 1.0, wereverse the roles of x and y that is we sample at unit y intervals(delta y =1)
+and caculate the cosecutive x values as :
+
+x(k+1) = x(k) + 1/m
