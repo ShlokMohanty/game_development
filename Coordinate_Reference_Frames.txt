@@ -1,0 +1,30 @@
+world coordinate reference frame ---> convinient cartesian coordinate system .
+strainght line segments with two end points .
+polygon --> set of positions for its vertices 
+These coordinate positions are stored in the scene description along with other information about teh objects .
+such as color and their coordinate extents 
+minimum and maximum x,y and z values for each object. 
+Objects are then displayed by passing the scene information to the viewing routines , which identify visible surfaces .
+scan conversion process stores information about the scene , such as color value , at the appropriate 
+locations in the frame buffer, 
+
+Screen Coordinates :
+location of the video monitor are referenced in integer screen coordinates , which correspond to the pixel
+positions in the frame buffer.
+scan line number---> y value 
+column number ---> x value 
+screen refreshing , typically address pixel positions with respect to the top-left corner of the screen .
+y(max) at teh bottom of the screen pixel position along each scan line are numbered from 0 to x(max), left t 
+right 
+Scan line algorithms for the graphics primitives use the defining coordinate descriptions to determine 
+the locations of pixels to be displayed .
+given the end point coordinates for the line segment , a display algo must calculate 
+the positions for those pixels that lie along the line path between the end points .
+pixel position occupies a finite area of the screen , the finite size of a pixel must be taken into account 
+by the implementation algorithms . We assume that each integer screen position references the center of the pixel area.
+setPixel(x,y); --> stores the current color setting into the frame buffer at integer position (x,y)
+relative to the selected position of the screen coordinate origin .anle to retrieve the current 
+frame-buffer setting  for a pixel location . getPixel(x,y, color), colo recieves the code for corresponding to 
+the RGB bit code stored for a third dimension references the depth of the object positions relative to a viewing position.
+for a 2d scene all the depth values are 0.
+
