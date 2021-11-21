@@ -1,0 +1,14 @@
+vertex buffer ---> its a memory buffer (array of memory of bytes of buffer)
+define a bunch of data that represents a triangle .
+we need to tell the GPU to tell to draw the triangle 
+shader is the program running on a GPU.
+OpenGL operates as a state machine --> that means we dont have to necessarily treat as an object 
+what we do instead is we set a series of states , what it dies it it tells that it needs to draw some specific 
+buffer or a shader.
+
+glBegin(GL_TRIANGLES);
+glVertex2f(-0.5f, -0.5f);
+glVertex2f(0.0f, 0.5f);
+glVertex2f(0.5f, -0.5f);
+glEnd();
+
