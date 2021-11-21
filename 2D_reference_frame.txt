@@ -29,3 +29,17 @@ GL_POINTS.form for an OpenGL specification of a point position is :
 glBegin(GL_POINTS);
 glVertex* ();
 glEnd();
+
+coordinate positions in OpenGL can be given in two, three or four dimensions .
+A 4D indicates a homogeneous coordinate representation 
+homogenous parameter ---> h(scaling factor )
+Homogenous-coordinate representations are useful for expressing tranformation operations in matrix form 
+any (x,y) coordinate specificagion is equivalent to (x,y,0) with h=1
+second suffix code on the glVertex func, r a single argument can be used that references a coordinate position as an array. slope=2,
+three equally spaced points plotted along 2D straight line path:
+glBegin(GL_POINTS);
+glVertex2i(50, 100);
+glVertex2i(75, 150);
+glVertex2i(100, 200);
+glEnd();
+
