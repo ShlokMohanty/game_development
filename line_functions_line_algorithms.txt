@@ -1,0 +1,40 @@
+we select a single endpoint coordinate position using the glVertex func just we did for the point position .
+we enclose a list of glVertex functions between the glBegin/glEnd  pair  glBegin function that interprets a list 
+of positions as the endpoint coordinates for the line segments.
+there are three symbolic constants that we can use to specify how a list of endpoint positions should 
+be connected to form a set of strainght line segments .
+By default each symbolic constant display solid, white lines.
+a set of straight line segments between each successive pair of end points in a list generated using the primitive
+line constant GL_LINES. nothing is diaplayed if only one end point is specified , and the last endpoint is not 
+processed if the number of endpoints listed is odd.
+5 coordinate positions , labeled p1 through p5, and each is represented as a 2D array , then the code 
+generate the display :
+
+glBegin(GL_LINES);
+glVertex2iv (p1);
+glVertex2iv (p2);
+glVertex2iv (p3);
+glVertex2iv (p4);
+glVertex2iv (p5);
+glEnd();
+
+using the same five coordinate positions as in the previous example , we obtain the display  with the code :
+
+glBegin(GL_LINE_STRIP);
+glVertex2iv (p1);
+glVertex2iv (p2);
+glVertex2iv (p3);
+glVertex2iv (p4);
+glVertex2iv (p5);
+glEnd();
+
+
+for a closed polyline :
+glBegin(GL_LINE_LOOP);
+glVertex2iv (p1);
+glVertex2iv (p2);
+glVertex2iv (p3);
+glVertex2iv (p4);
+glVertex2iv (p5);
+glEnd();
+
