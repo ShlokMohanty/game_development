@@ -1,0 +1,31 @@
+gluOrtho2D----> function we use to set up any 2D cartesian reference frame .
+arguments: 4 values defining the x and y coordinate limits for the picture we want to display .
+specifies an orthogonal projection ---> gluOrtho2D
+coordinate values are placed in teh OpenGL projection matrix.
+we could assign the Identity Matrix as the Projection Matrix  before defining the world coordinate range .
+we can define the coordinate frame for the screen display window with the following statements:
+
+glMatrixMode(GL_PROJECTION);
+glLoadIdentity();
+gluOrtho2D(xmin, xmax, ymin, ymax);
+
+display window then will be referenced by coordinates (xmin , ymin) at the lower-left corner by coordinates(xmax, ymax)
+at the upper right corner 
+
+OpenGL Point Function :
+coordinate position along with other geometric descriptions may have in our scene , is passsed to the 
+viewing routines.
+OpenGL primitives are displayed with a default size and color . The default color for primitives is 
+white and the default point size is equal to the size of one screen pixel .
+
+we use the open =gl func to state the coordinate values for a single position : 
+glVertex* ()
+* --> suffix codes are required this function .
+used to identify the spatial dimension , the numerical data type to be used for the coordinate values , and a vector 
+form for the coordinate specification . glVertex func must be placed between a glBegin and a glEnd 
+the argument of the glBegin func is used to identify the kind of output primitive that is to be displayed ,
+glEnd takes no argument for point plotting , the argument of the glBegin function is the symbolic constant 
+GL_POINTS.form for an OpenGL specification of a point position is :
+glBegin(GL_POINTS);
+glVertex* ();
+glEnd();
