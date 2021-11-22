@@ -1,0 +1,41 @@
+section of a display screen where a negative slope line segment is to be plotted , 
+starting from the pixel at column 50 on scan line 50.
+starting from the left endpoint at pixel position(50, 50). select the next pixel position as (51, 50)
+or as (51, 49) testing the sign of an integer parameter whose value is proportional to the difference between 
+the vertical separations of the two pixel positions from teh actual line path.
+first consider the scan conversion process for lines with positive slope less than 1.0. Pixel positions 
+along a line path are by sampling at unit x intervals . 
+starting from the left end point (x0, y0) of a given line, we step each successive column(x position)
+and plot the pixel whose scan-line y value is closest to the line path.
+Assuming that we have determined that the pixel at(x(k), y(k)) is to be displayed we need to decide
+which pixel to plot in column x(k+1) = x(k)+1
+pixels at positions(x(k+1), y(k)) and (x(k)+1, y(k)+1)
+At sampling position x(k)+1, we label vertical pixel separations from the mathematical line path as d(lower)
+and d(upper).
+
+y = m(xk+1) + b
+d(lower) = y-yk = m(xk+1)+b-yk
+d(upper) = (yk + 1)-y = (yk + 1)- m(xk+1)-b
+
+to determine the closest pixel to the line path, set up an efficient test based on the difference between 
+the two pixel separations :
+
+d(lower) - d(upper)= 2m(xk+1)- 2yk + 2b -1
+decision parameter pk for the kth step in the line algorithm can be obtained by rearranging 
+so that it involves only int calculations .
+m=delta(y)/delta(x)
+p(k) = deltax(x)(d(lower)-d(upper)) = (2(delta(y))).xk - (2(delta(x))). yk + c
+
+for the colum table look at the notebook .
+among the various pocessors available. One approach to the partitioning problem is to adapt an existing sequential 
+algorithm to take advantage of multiple processors 
+given ,
+np processors , set up a parallel Bresenham algorithm by subdividing the line path into np partitions 
+The distance between beginning x positions of the adjacent partitions can be calculated as :
+
+delta(xp) = (delta(x)+np-1)/np
+delta(x) is the width of the line and the value for partition of adjacent partitions can be calculated as :
+
+we calculate the starting x coordinate for the kth partition as :
+xk = x0 + kdelta(xp)
+if we have np = 4 processors , with delta(x)=15 
