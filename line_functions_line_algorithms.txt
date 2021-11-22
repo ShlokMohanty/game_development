@@ -38,3 +38,28 @@ glVertex2iv (p4);
 glVertex2iv (p5);
 glEnd();
 
+DDA :
+based on calculating delta x or delta y 
+line sampled at unit intervals in one coordinate and the corresponding integer values nearest the line path are determined for the other coordinate.
+
+consider a line with a positive slope , if slope is less than or equal to 1, we sample 
+at unit x intervals (delta(x)=1) and compute successive y value as :
+if m <= 1 we sample at unit x intervals 
+y(k+1) = y(k) + m 
+
+line with positive slope greater than 1.0, we reverse the roles of x and y .
+we sample at unit y intervals(delta(y)=1) and calculate consecutive x values as :
+x(k+1) = x(k) + 1/m
+processing from left endpoint to the right endpoint.
+when reversed , starting end point is at the right , then either we have delta(x), then either we have delta(x)=-1 and :
+ y(k+1) = y(k) - m 
+ or when the slope is greater than 1 we have delta(y)=-1 with :
+ x(k+1) = x(k) - 1/m
+ similar calculations are carried out to determine pixel positions along a line with the negative 
+ slope if the absolute value horizontal and vertical differences between the endpoint positions 
+ are assigned to the parameters dx and dy.
+ if |delta(x)| > |delta(y)| and x0 is less than xEnd ,the values for the increments in the x and y 
+ directions are 1 and m , respectively .
+ if the greater range is in the x direction , but x0 is greater than xEnd, the the decrements -1 and -m used to generate each new point on the line.Otherwise , use a unit increment(or decrement) in the y direction and an x increment (or decrement) of 1/m.
+ improving the DDA algorithm :
+separating the increments m and 1/m into int and fractional parts so that all calculations are reduced to int integers.
