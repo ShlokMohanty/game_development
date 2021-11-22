@@ -1,0 +1,14 @@
+marks the current window as needing to be redisplayed.
+Usage :
+void glutPostReDisplay(void);
+Description:
+Mark the normal plane of current window as needing to be redisplayed. 
+Next iteration through glutMainLoop,
+the window's display callback will be called to redisplay the window's normal plane.
+Multiple calls to glutPostReDisplay before the next display callback opportunity generates 
+only a single redisplay callback to re-mark that window for redisplay.
+
+Logically, normal plane damage notification for a window is treated as a glutPostRedisplay on the damaged 
+window. Unlike damage reported by the window system, glutPostReDisplay will not set to true the normal 
+plane's damaged status (returned by glutLayerGet(GLUT_NORMAL_DAMAGED)).
+
