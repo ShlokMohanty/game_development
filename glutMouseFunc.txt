@@ -1,0 +1,20 @@
+sets the mouse callback for the current window .
+usage :
+void glutMouseFunc(void (*func)(int button, int state, int x, int y));
+func:
+The new mouse callback function.
+when user presses and releases mouse buttons in the window,when we press and release the mouse 
+the mouse callback is generated .
+Button parameter is one of GLUT_LEFT_BUTTON, GLUT_MIDDLE_BUTTON, OR GLUT_RIGHT_BUTTON.
+not possible to generate only a GLUT_LEFT_BUTTON callback.
+state parameter ---> either GLUT_UP or GLUT_DOWN for indcating that whether the callback was due to the release
+or press .
+The x and y callback parameters indicate the window relative coordinates when the mouse button 
+state changed . if a menuy is attached to a button for a window , mouse callbacks for the same button
+will be generated (assuming the window still has a mouse callback registered) when the mouse button is released
+even if the mouse has moved outside the window.
+
+During a mouse callback, glutGetModifiers may be called to determine the state of modifier keys when the mouse 
+event generating the callback occured.
+
+passing null to glutMouseFunc disables the generation of mouse callbacks.
